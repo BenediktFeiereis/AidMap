@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AidMap - OPQRST</title>
+    <head>
+        <script href="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+</head>
+<body class="button-container">
+    <h1>AIDMAP</h1>
+    <hr>
+    <div>
+        <form id="assessment-form">
+            <h2>Pädiatrisches Beurteilungsdreieck</h2>
+            <label>
+                <input type="checkbox" id="appearance" name="assessment" value="appearance">
+                Erscheinungsbild (Appearance)
+            </label><br>
+            <label>
+                <input type="checkbox" id="breathing" name="assessment" value="breathing">
+                Atmung (Breathing)
+            </label><br>
+            <label>
+                <input type="checkbox" id="circulation" name="assessment" value="circulation">
+                Kreislauf (Circulation)
+            </label><br>
+            <button type="button" onclick="evaluateAssessment()">Bewerten</button>
+        </form>
+        <p id="result"></p>
+
+        <script>
+            function evaluateAssessment() {
+                const checkboxes = document.querySelectorAll('#assessment-form input[type="checkbox"]');
+                let positiveCount = 0;
+
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        positiveCount++;
+                    }
+                });
+
+                const result = document.getElementById('result');
+                if (positiveCount >= 2) {
+                    result.textContent = "Die Abfrage ist positiv.";
+                } else {
+                    result.textContent = "Die Abfrage ist negativ.";
+                }
+            }
+        </script>
+    </div>
+    <hr>
+    <div>
+        <p>
+            BEFAST ist ein Akronym, das in der Notfallmedizin verwendet wird, um schnell auf Anzeichen eines Schlaganfalls zu reagieren. <br>
+            Es hilft, die Symptome eines Schlaganfalls zu erkennen und schnell zu handeln. <br>
+            <br>
+        </p>
+    </div>
+    <a href="index.html">Zurück zur Startseite</a>
+</body>

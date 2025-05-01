@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AidMap - STU</title>
+    <head>
+        <script href="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+</head>
+<body class="button-container">
+    <h1>AIDMAP</h1>
+    <hr>
+
+    <h2>GCS</h2>
+    <div class="gcs">
+      <select name="" id="eyes" class="gcs">
+        <option value="" disabled selected>Augen</option>
+        <option value="4">4 - Spontan</option>
+        <option value="3">3 - Auf Ansprache</option>
+        <option value="2">2 - Auf Schmerzreiz</option>
+        <option value="1">1 - Keine Reaktion</option>
+      </select>
+      <select name="" id="verbal" class="gcs">
+        <option value="" disabled selected>Verbale Reaktion</option>
+        <option value="5">5 - Orientiert</option>
+        <option value="4">4 - Desorientiert</option>
+        <option value="3">3 - Unverständliche Laute</option>
+        <option value="2">2 - Laute ohne Sinn</option>
+        <option value="1">1 - Keine Reaktion</option>
+      </select>
+      <select name="" id="motor" class="gcs">
+        <option value="" disabled selected>Motorische Reaktion</option>
+        <option value="6">6 - Befehle befolgen</option>
+        <option value="5">5 - Lokalisieren</option>
+        <option value="4">4 - Abwehr</option>
+        <option value="3">3 - Flexorisch</option>
+        <option value="2">2 - Extensorisch</option>
+        <option value="1">1 - Keine Reaktion</option>
+      </select>
+    </div>
+    <div>
+        <label for="totalScore">Gesamtpunktzahl:</label>
+        <input type="text" id="totalScore" class="gcs" readonly>
+      </div> <br>
+
+    <script>
+        const eyes = document.getElementById('eyes');
+      const verbal = document.getElementById('verbal');
+      const motor = document.getElementById('motor');
+      const totalScore = document.getElementById('totalScore');
+
+      function calculateTotal() {
+        const eyesValue = parseInt(eyes.value) || 0;
+        const verbalValue = parseInt(verbal.value) || 0;
+        const motorValue = parseInt(motor.value) || 0;
+        totalScore.value = eyesValue + verbalValue + motorValue;
+      }
+
+      eyes.addEventListener('change', calculateTotal);
+      verbal.addEventListener('change', calculateTotal);
+      motor.addEventListener('change', calculateTotal);
+    </script>
+    <hr>
+    <a href="index.html">Zurück zur Startseite</a>
+</body>
